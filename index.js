@@ -1,13 +1,14 @@
 const express = require("express");
-const { connection } = require("./config/db.js");
+const { connection } = require("./config/db");
 const { UserModel } = require("./models/userModel.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const salt = parseInt(process.env.salt);
+ 
 require("dotenv").config();
 
 const app = express();
-const salt = parseInt(process.env.salt);
 app.use(
   cors({
     origin: "*",
