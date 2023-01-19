@@ -15,6 +15,9 @@ app.use(
   })
 );
 app.use(express.json());
+app.get("/",(req,res)=>{
+  res.send("home")
+})
 app.post("/signup", async (req, res) => {
   const { email, password } = req.body;
   const checkEmail = await UserModel.find({ email });
