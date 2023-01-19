@@ -64,7 +64,7 @@ app.post("/login", async (req, res) => {
     res.send({ msg: "something went wrong" });
   }
 });
-app.listen(process.env.port || 3001, async () => {
+app.listen(process.env.port, async () => {
   try {
     await connection;
     console.log("connected to database");
