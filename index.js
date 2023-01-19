@@ -4,7 +4,7 @@ const { UserModel } = require("./models/userModel.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
-const salt = parseInt(process.env.salt);
+
  
 require("dotenv").config();
 
@@ -25,7 +25,7 @@ app.post("/signup", async (req, res) => {
     res.send({ msg: "Email already exist" });
   } else {
     try {
-      bcrypt.hash(password, salt, async (err, hash) => {
+      bcrypt.hash(password, 4, async (err, hash) => {
         if (err) {
           console.log(err);
           res.send({ msg: "Registration Failed" });
