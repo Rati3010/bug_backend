@@ -4,10 +4,11 @@ const { UserModel } = require("./models/userModel.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const { default: mongoose } = require("mongoose");
 
  
 require("dotenv").config();
-
+mongoose.set('strictQuery', true);
 const app = express();
 app.use(
   cors({
